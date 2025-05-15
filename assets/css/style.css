@@ -1,57 +1,188 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vaishnavi Portfolio</title>
+/* ===== Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+body {
+  font-family: 'Dancing Script', sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+  padding: 20px;
+  scroll-behavior: smooth;
+}
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
+/* ===== Navigation ===== */
+header {
+  background: #333;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+nav li {
+  margin: 0 15px;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+nav a:hover {
+  color: #ffd700;
+}
 
-  <!-- ===== Navigation ===== -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+/* ===== Hero Section with Moving Gradient ===== */
+#home {
+  text-align: center;
+  padding: 100px 0;
+  background: linear-gradient(-45deg, #4a90e2, #6dd5ed, #ffc0cb, #ff9a9e);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+  color: #fff;
+  animation: fadeIn 1.2s ease-in-out;
+}
+#home img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+  animation: zoomIn 1s ease;
+}
+#home .tagline {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  opacity: 0.9;
+}
 
-  <!-- ===== Hero / Home Section ===== -->
-  <section id="home">
-    <img src="assets/images/photo.jpg" alt="Vaiishu's Profile Picture" class="profile-pic">
-    <h1>Hi, I’m Vaishnavi 👋</h1>
-    <p class="tagline">Full‑Stack Developer & Data Enthusiast</p>
-  </section>
+/* ===== Sections ===== */
+section {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+  animation: fadeIn 1s ease;
+}
+section h2 {
+  margin-bottom: 20px;
+  border-bottom: 2px solid #4a90e2;
+  display: inline-block;
+  font-size: 1.8rem;
+}
 
-  <!-- ===== Projects Section ===== -->
-  <section id="projects">
-    <h2>My Projects</h2>
-    <div class="project-list">
-      <div class="project">
-        <h3>Project Alpha</h3>
-        <p>A React app that does X. 
-          <a href="#" class="project-link" target="_blank">Live Demo</a> | 
-          <a href="#" class="project-link" target="_blank">Source</a>
-        </p>
-      </div>
-      <div class="project">
-        <h3>Project Beta</h3>
-        <p>A data‑science notebook for Y. 
-          <a href="#" class="project-link" target="_blank">GitHub Repo</a>
-        </p>
-      </div>
-    </div>
-  </section>
+/* ===== Projects List ===== */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.project {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.project a {
+  color: #4a90e2;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.project a:hover {
+  color: #e91e63;
+}
 
-  <!-- ===== About Section ===== -->
-  <section id="about">
-    <h2>
+/* ===== Contact ===== */
+#contact ul {
+  list-style: none;
+  padding: 0;
+}
+#contact li {
+  margin: 10px 0;
+}
+#contact a {
+  color: #4a90e2;
+  font-weight: bold;
+}
+#contact a:hover {
+  color: #e91e63;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #home {
+    padding: 60px 0;
+  }
+
+  #home img {
+    width: 120px;
+    height: 120px;
+  }
+
+  section {
+    padding: 0 10px;
+  }
+}
